@@ -1,6 +1,6 @@
 const mapComponent = Vue.extend({
   template: `
-    <div>map</div>
+    <div class="map-box">map</div>
   `,
   data() {
 

@@ -1,6 +1,6 @@
 const bottomComponent = Vue.extend({
   template: `
-    <div>bottom</div>
+    <div class="bottom-box">bottom</div>
   `,
   data() {
 

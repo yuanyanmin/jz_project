@@ -1,6 +1,6 @@
 const leftComponent = Vue.extend({
   template: `
-    <div>left</div>
+    <div class="left-box">left</div>
   `,
   data() {
 

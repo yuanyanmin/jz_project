@@ -1,6 +1,6 @@
 const rightComponent = Vue.extend({
   template: `
-    <div>right</div>
+    <div class="right-box">right</div>
   `,
   data() {
 
