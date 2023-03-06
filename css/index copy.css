@@ -13,7 +13,7 @@
   position: absolute;
   width: 25%;
   height: 80%;
-  padding: 20px 10px;
+  padding: 0.20rem 0.10rem;
   box-sizing: border-box;
   /* border: 1px solid rgba(12, 52, 184, 1);
   box-shadow: 0px 0px 5px 5px rgba(5, 9, 199, 1) inset; */
@@ -56,15 +56,15 @@
 } */
 .g-title {
   position: relative;
-  border: 0px ;
-  border-top: 1px solid;
-  border-bottom: 1px  solid; /* 上下边框为1px,其余方向没有 */
+  border: 0 ;
+  border-top: 0.01rem solid;
+  border-bottom: 0.01rem  solid; /* 上下边框为1px,其余方向没有 */
   border-image:linear-gradient(90deg,rgb(0,60,80), rgb(4,20,42)) 1 1;
-  margin-bottom: 10px;
-  font-size: 16px;
-  padding-left: 10px;
-  height: 30px;
-  line-height: 30px;
+  margin-bottom: 0.10rem;
+  font-size: 0.16rem;
+  padding-left: 0.1rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
   background: -webkit-linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* Firefox 3.6 - 15 */
@@ -106,88 +106,47 @@
 
 /* 左侧样式 */
 .left-box .sample-number-box {
-  font-size: 24px;
-  height: 15%;
-  overflow: hidden;
+  font-size: 0.24rem;
+  height: 10%;
 }
 .left-box .sample-number-box .num {
-  margin-top: 20px;
-  padding: 20px 0px;
+  margin-top: 0.2rem;
+  padding: 0.2rem 0;
   text-align: center;
 }
 .left-box .sample-number-box .num-item {
   display: inline-block;
-  padding: 5px;
+  padding: 0.05rem;
   background: url('../images/numItemBox.png') no-repeat;
   background-size: 100% 100%;;
-  margin-left: 10px;
+  margin-left: 0.1rem;
   text-align: center;
 }
 .left-box .network-indicators-box {
-  height: 60%;
-  overflow: hidden;
-
-}
-.left-box .network-indicators-box .network4G {
-  height: 50%;
-  overflow: hidden;
-}
-.left-box .network-indicators-box .network5G {
-  height: 50%;
-  overflow: hidden;
-}
-.left-box .network-indicators-box .seamless-title {
-  display: flex;
-  justify-content: space-around;
-  overflow: hidden;
-}
-.left-box .network-indicators-box .seamless-warp {
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.left-box .network-indicators-box .seamless-warp li {
-  height: 30px;
-  line-height: 30px;
-  padding: 0 10px;
-  color: rgb(250, 200, 88);
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-around;
-}
-.left-box .network-indicators-box .seamless-warp li span {
-  display: inline-block;
-  min-width: 20px;
-}
-.left-box .network-indicators-box .seamless-warp li:nth-child(even) {
-  background-color: rgb(0, 48, 101, 0.5);
-}
-.left-box .network-indicators-box .seamless-warp li:nth-child(odd) {
-  background-color: rgb(1, 30, 74, 0.8);          
+  height: 57%;
 }
 
 
 .left-box .data-capture-box {
-  margin-top: 20px;
-  height: 25%;
-  overflow: hidden;
+  margin-top: 0.2rem;
+  height: 26%;
 }
 .left-box .data-capture-box .content {
   overflow: hidden;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 0.1rem;
+  margin-top: 0.1rem;
 }
 .left-box .data-capture-box .content .num {
-  font-size: 20px;
+  font-size: 0.2rem;
   color: #00b0ed;
 }
 .left-box .data-capture-box .content .title {
-  font-size: 14px;
+  font-size: 0.14rem;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 0.10rem;
 }
 .left-box .data-capture-box .totalNum .num{
-  font-size: 25px;
+  font-size: 0.25rem;
   color: #fedb65;
 }
 
@@ -197,7 +156,7 @@
 }
 .left-box .data-capture-box .totalNum{
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0.2rem;
 }
 
 .left-box .data-capture-box .shop {
