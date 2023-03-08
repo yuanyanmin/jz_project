@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import ScreenMap from './components/map.vue'
+import ScreenMap from './components/centerMap.vue'
 import ScreenHeader from './components/header.vue'
 import ScreenLeft from './components/left.vue'
 import ScreenRight from './components/right.vue'

@@ -1,5 +1,12 @@
 <template>
   <div class="map-container">
+    <div class="box">
+      <div v-if="curProvince !== '全国'"
+        class="back"
+        @click="backMap"><i class="el-icon-arrow-left el-icon--left"></i>全国</div>
+      <div id="centerMapChart_jb"
+        class="chart" />
+    </div>
   </div>
 </template>
 
