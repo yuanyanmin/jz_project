@@ -12,7 +12,16 @@
 
 <script>
 export default {
-  
+  data() {
+    return {
+      curProvince: ''
+    }
+  },
+  methods: {
+    backMap() {
+      
+    }
+  }
 }
 </script>
 
