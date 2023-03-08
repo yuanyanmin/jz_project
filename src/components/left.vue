@@ -20,53 +20,37 @@
         <span class="icon"></span>
         网络指标
       </p>
-      <div class="network4G">
-        <el-tabs type="border-card">
-          <el-tab-pane label="4G">
-    
-  
-            <ul class="table-title">
-              <li class="seamless-title">
-                <span class="coverageRate">覆盖率</span>
-                <span class="samplesNum">样本数量</span>
-                <span class="excellentSamplesNum">优良样本数量</span>
-                <span class="userNum">用户数</span>
-              </li>
-              
-            </ul>
-            <ul class="table-col">
-              <li v-for="(item, index) in network4GData" :key="index" class="seamless-value">
-                <span class="coverageRate" v-text="item.coverageRate"></span>
-                <span class="samplesNum" v-text="item.samplesNum"></span>
-                <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
-                <span class="userNum" v-text="item.userNum"></span>
-              </li>
-            </ul>
-          </el-tab-pane>
-          <el-tab-pane label="5G">
-           <ul class="table-title">
-              <li class="seamless-title">
-                <span class="coverageRate">覆盖率</span>
-                <span class="samplesNum">样本数量</span>
-                <span class="excellentSamplesNum">优良样本数量</span>
-                <span class="userNum">用户数</span>
-              </li>
-              
-            </ul>
-            <ul class="table-col">
-              <li v-for="(item, index) in network4GData" :key="index" class="seamless-value">
-                <span class="coverageRate" v-text="item.coverageRate"></span>
-                <span class="samplesNum" v-text="item.samplesNum"></span>
-                <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
-                <span class="userNum" v-text="item.userNum"></span>
-              </li>
-            </ul>
-          </el-tab-pane>
-        </el-tabs>
-
+      
+      
+      <div class="networkBox">
+        <div class="network-type-box">
+          <el-radio-group v-model="networkType" size="mini">
+            <el-radio-button label="4G"></el-radio-button>
+            <el-radio-button label="5G"></el-radio-button>
+          </el-radio-group>
+        </div>
+        <div class="networkCon">
+          <ul class="table-title">
+            <li class="seamless-title">
+              <span class="coverageRate">覆盖率</span>
+              <span class="samplesNum">样本数量</span>
+              <span class="excellentSamplesNum">优良样本数量</span>
+              <span class="userNum">用户数</span>
+            </li>
+            
+          </ul>
+          <ul class="table-col">
+            <li v-for="(item, index) in networkData" :key="index" class="seamless-value">
+              <span class="coverageRate" v-text="item.coverageRate"></span>
+              <span class="samplesNum" v-text="item.samplesNum"></span>
+              <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
+              <span class="userNum" v-text="item.userNum"></span>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     </div>
-
     <div class="data-capture-box">
       <p class="g-title">
         <span class="icon"></span>
@@ -98,11 +82,13 @@ export default {
   data() {
     return {
       sampleNumber: '81025万',
+      networkType: '4G',
       captureData: {
         totalNum: 5870000,
         buildingNum: 8700,
         shop: 250000
       },
+      networkData: [],
       network4GData: [
         {coverageRate: '10%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
         {coverageRate: '20%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
@@ -118,19 +104,31 @@ export default {
         {coverageRate: '120%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 }
       ],
       network5GData: [
-        {coverageRate: '10%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '20%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '30%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '40%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '50%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '60%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '70%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '80%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '90%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '100%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '50%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '120%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 }
+        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '52%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '53%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '54%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '56%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '57%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '58%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
+        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 }
       ]
+    }
+  },
+  mounted() {
+    this.networkData = this.network4GData
+  },
+  watch: {
+    networkType(val) {
+      if (val === '4G') {
+        this.networkData = this.network4GData
+      } else if (val === '5G') {
+        this.networkData = this.network5GData
+      }
     }
   }
 }
@@ -146,32 +144,38 @@ export default {
   // height: 60%;
   top: 0.62rem;
   width: 4rem;
-  height: 8rem;
-  // height: 60%;
+  // height: 8rem;
+  height: 60%;
   overflow: hidden;
   min-width: 180px;
+  background-color: #666;
   .sample-number-box {
     font-size: 0.24rem;
     height: 1.3rem;
     .num {
-      margin-top: 20px;
-      padding: 20px 0px;
+      margin-top: 0.2rem;
+      padding: 0.2rem 0;
       text-align: center;
     }
     .num-item {
       display: inline-block;
-      padding: 5px;
+      padding: 0.05rem;
       background: url('../assets/screen_icon/numItemBox.png') no-repeat;
       background-size: 100% 100%;;
-      margin-left: 10px;
+      margin-left: 0.1rem;
       text-align: center;
     }
   }
   .network-indicators-box {
-    height: 4.3rem;
+    // height: 4.3rem;
+    height: calc(100% - 3.5rem - 30px);
     overflow: hidden;
     margin-top: 0.2rem;
-    .network4G {
+    .networkBox {
+      height: 100%;
+      .networkCon {
+        height: 100%;
+      }
     }
     .seamless-title {
       display: flex;
@@ -202,7 +206,8 @@ export default {
 
     }
     .table-col {
-      height: 3rem;
+      // height: 3rem;
+      height: 100%;
       overflow: auto;
     }
 

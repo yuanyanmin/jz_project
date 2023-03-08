@@ -18,7 +18,9 @@
         <p
           v-for="(item, index) in menuData"
           :key="index" 
-          :index="item.id">
+          :index="item.id"
+          :class="[curSelectMenuIndex === index ? 'underline' : '']"
+          @click="changeCity(index)">
           {{item.name}}
         </p>
       </div>
@@ -82,7 +84,8 @@ export default {
         {scene: '城市', totalNum: 100, coverage: '100%'},
         {scene: '城市', totalNum: 100, coverage: '100%'},
         {scene: '城市', totalNum: 100, coverage: '100%'}
-      ]
+      ],
+      curSelectMenuIndex: 0
     }
   },
   methods: {
@@ -91,6 +94,17 @@ export default {
     },
     handleClose() {
 
+    },
+    random(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
+    changeCity(index) {
+      this.curSelectMenuIndex = index
+      this.tableData = this.tableData.map(item => {
+        item.totalNum = this.random(1, 1001),
+        item.coverage = this.random(1, 101) + '%'
+        return item
+      })
     }
   }
 }
@@ -103,9 +117,10 @@ export default {
   top: 0.62rem;
   width: 4rem;
   z-index: 3;
-  height: 8rem;
+  // height: 8rem;
+  height: 60%;
   overflow: hidden;
-  // background-color: red;
+  background-color: #666;
   min-width: 180px;
   .city-menu {
     float: left;
@@ -114,6 +129,11 @@ export default {
     .city-box {
       p {
         line-height: 0.4rem;
+        cursor: pointer;
+        text-align: center;
+      }
+      p.underline {
+        border-bottom: 1px solid #fff;
       }
     }
     

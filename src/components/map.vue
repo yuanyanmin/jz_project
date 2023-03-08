@@ -13,7 +13,8 @@ export default {
 .map-container {
   position: relative;
   width: 10.6rem;
-  height: 8rem;
+  // height: 8rem;
+  height: 60%;
   margin: 0 auto;
   top: 0.62rem;
   background: #999;
