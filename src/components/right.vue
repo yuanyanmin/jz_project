@@ -29,10 +29,14 @@
         <li
           v-for="(item, index) in tableData"
           :key="index"
-           class="flex-show table-item">
-          <span class="scene_col">{{item.scene}}</span>
-          <span class="total_col">{{item.totalNum}}</span>
-          <span class="coverage_col">{{item.coverage}}</span>
+          class="table-item">
+          <div
+           class="flex-show table-value">
+            <span class="scene_col">{{item.scene}}</span>
+            <span class="total_col">{{item.totalNum}}</span>
+            <span class="coverage_col">{{item.coverage}}</span>
+          </div>
+          <div class="borer-split"></div>
         </li>
       </ul>
     </div>
@@ -145,7 +149,20 @@ export default {
       justify-content: space-around;
       text-align: center;
       align-items: center;
-      border-bottom: 0.01rem solid rgba(15,179,255,.5);
+      // border-bottom: 0.01rem solid rgba(15,179,255,.5);
+    }
+    .table-value {
+      height: 100%;
+    }
+    .borer-split {
+      background: url('../assets/screen_icon/borderSplit.png') no-repeat;
+      background-size: 100% 100%;
+      display: inline-block;
+      width: 100%;
+      height: 0.02rem;
+      position: absolute;
+      bottom: 0;
+      left: 0;
     }
     .table-ul {
       height: calc(100% - 0.8rem);
@@ -154,6 +171,7 @@ export default {
     .table-item {
       // line-height: 40px;
       height: 10%;
+      position: relative;
     }
     .scene_col {
       width: 20%;
