@@ -148,7 +148,7 @@ export default {
   height: 60%;
   overflow: hidden;
   min-width: 180px;
-  background-color: #666;
+  // background-color: #666;
   .sample-number-box {
     font-size: 0.24rem;
     height: 1.3rem;
@@ -168,11 +168,15 @@ export default {
   }
   .network-indicators-box {
     // height: 4.3rem;
-    height: calc(100% - 3.5rem - 30px);
+    height: calc(100% - 3.7rem);
     overflow: hidden;
     margin-top: 0.2rem;
     .networkBox {
       height: 100%;
+      .network-type-box {
+        text-align: center;
+        padding: 0 0 0.1rem 0;
+      }
       .networkCon {
         height: 100%;
       }
@@ -202,13 +206,20 @@ export default {
     /deep/ .el-tabs--border-card>.el-tabs__content {
       padding: 0.15rem 0.05rem;
     }
+    /deep/ .el-radio-button__orig-radio:checked+.el-radio-button__inner {
+      background-color: rgb(0, 71, 185);
+      border-color: rgb(0, 71, 185);
+    }
     .table-title {
 
     }
     .table-col {
       // height: 3rem;
-      height: 100%;
+      height: calc(100% - 1.2rem);
       overflow: auto;
+    }
+    /deep/ .el-radio-button--mini .el-radio-button__inner {
+      padding: 0.05rem 0.1rem;
     }
 
   // }

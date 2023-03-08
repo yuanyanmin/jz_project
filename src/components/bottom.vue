@@ -22,6 +22,6 @@ export default {
   height: calc(39% - 0.62rem - 0.2rem);
   // height: 2rem;
   overflow: hidden;
-  background: #999;
+  // background: #999;
 }
 </style>
