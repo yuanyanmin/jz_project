@@ -45,16 +45,19 @@ export default {
 <style lang="scss" scoped>
 .screen-bottom {
   position: absolute;
-  left: 0.1rem;
+  right: 0.1rem;
   // bottom: 0.01rem;
   // top: 6.2rem;
-  top: calc(61% + 0.62rem);
-  width: 99%;
+  // top: calc(61% + 0.62rem);
+  top: 60%;
+  // width: 99%;
+  width: calc(100% - 4.3rem);
   display: flex;
   justify-content: space-around;
-  height: calc(39% - 0.62rem - 0.2rem);
+  height: 40%;
+  // height: calc(39% - 0.62rem - 0.2rem);
   // height: 2rem;
   overflow: hidden;
-  // background: #999;
+  // background: #f00;
 }
 </style>

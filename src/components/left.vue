@@ -23,30 +23,62 @@
       
       
       <div class="networkBox">
-        <div class="network-type-box">
-          <el-radio-group v-model="networkType" size="mini">
-            <el-radio-button label="4G"></el-radio-button>
-            <el-radio-button label="5G"></el-radio-button>
-          </el-radio-group>
-        </div>
+       
         <div class="networkCon">
           <ul class="table-title">
             <li class="seamless-title">
-              <span class="coverageRate">覆盖率</span>
-              <span class="samplesNum">样本数量</span>
-              <span class="excellentSamplesNum">优良样本数量</span>
+              <span class="coverageRate">4G覆盖率</span>
+              <span class="samplesNum">样本数</span>
+              <span class="excellentSamplesNum">优良样本数</span>
               <span class="userNum">用户数</span>
             </li>
             
           </ul>
-          <ul class="table-col">
-            <li v-for="(item, index) in networkData" :key="index" class="seamless-value">
+          <!-- <ul class="table-col">
+            <li v-for="(item, index) in network4GData" :key="index" class="seamless-value">
               <span class="coverageRate" v-text="item.coverageRate"></span>
               <span class="samplesNum" v-text="item.samplesNum"></span>
               <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
               <span class="userNum" v-text="item.userNum"></span>
             </li>
+          </ul> -->
+
+          <vue-seamless-scroll :data="network4GData" class="seamless-warp" :class-option="classOption">
+            <ul class="item">
+              <li v-for="(item, index) in network4GData" :key="index">
+                <span class="coverageRate" v-text="item.coverageRate"></span>
+                <span class="samplesNum" v-text="item.samplesNum"></span>
+                <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
+                <span class="userNum" v-text="item.userNum"></span>
+              </li>
+            </ul>
+          </vue-seamless-scroll>
+        </div>
+
+        <div class="networkCon">
+          <ul class="table-title">
+            <li class="seamless-title">
+              <span class="coverageRate">5G覆盖率</span>
+              <span class="samplesNum">样本数</span>
+              <span class="excellentSamplesNum">优良样本数</span>
+              <span class="lingerRate">5G驻留比</span>
+              <span class="comCoverage">综合覆盖率</span>
+              <span class="userNum">用户数</span>
+            </li>
+            
           </ul>
+          <vue-seamless-scroll :data="network5GData" class="seamless-warp seamless-5g" :class-option="classOption">
+            <ul class="table-col">
+              <li v-for="(item, index) in network5GData" :key="index">
+                <span class="coverageRate" v-text="item.coverageRate"></span>
+                <span class="samplesNum" v-text="item.samplesNum"></span>
+                <span class="excellentSamplesNum" v-text="item.excellentSamplesNum"></span>
+                <span class="lingerRate" v-text="item.lingerRate"></span>
+                <span class="comCoverage" v-text="item.comCoverage"></span>
+                <span class="userNum" v-text="item.userNum"></span>
+              </li>
+            </ul>
+          </vue-seamless-scroll>
         </div>
         
       </div>
@@ -56,16 +88,16 @@
         <span class="icon"></span>
         数据采集
       </p>
-      <div class="content g-box-border">
+      <div class="content">
         <div class="totalNum">
           <p class="title">场景总数</p>
           <p class="num g-text-overflow">{{captureData.totalNum}}</p>
         </div>
-        <div class="fl buildingNum">
+        <div class="buildingNum">
           <p class="title">楼宇</p>
           <p class="num g-text-overflow">{{captureData.buildingNum}}</p>
         </div>
-        <div class="fr shop">
+        <div class="shop">
           <p class="title">店铺</p>
           <p class="num g-text-overflow">{{captureData.shop}}</p>
         </div>
@@ -76,19 +108,20 @@
 
 
 <script>
+import vueSeamlessScroll from 'vue-seamless-scroll'
+
 export default {
   components: {
+    vueSeamlessScroll
   },
   data() {
     return {
       sampleNumber: '81025万',
-      networkType: '4G',
       captureData: {
         totalNum: 5870000,
         buildingNum: 8700,
         shop: 250000
       },
-      networkData: [],
       network4GData: [
         {coverageRate: '10%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
         {coverageRate: '20%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
@@ -104,31 +137,29 @@ export default {
         {coverageRate: '120%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 }
       ],
       network5GData: [
-        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '52%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '53%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '54%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '56%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '57%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '58%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 },
-        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, userNum: 100 }
-      ]
-    }
-  },
-  mounted() {
-    this.networkData = this.network4GData
-  },
-  watch: {
-    networkType(val) {
-      if (val === '4G') {
-        this.networkData = this.network4GData
-      } else if (val === '5G') {
-        this.networkData = this.network5GData
-      }
+        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '52%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '53%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '54%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '56%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '57%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '58%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '51%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '55%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 },
+        {coverageRate: '59%', samplesNum: 1000, excellentSamplesNum: 100, comCoverage: '90%', lingerRate: '90%', userNum: 100 }
+      ],
+      classOption: {
+        step: 0.5, // 数值越大速度滚动越快
+        limitMoveNum: 1116, // 开始无缝滚动的数据量 this.dataList.length
+        hoverStop: true, // 是否开启鼠标悬停stop
+        direction: 1, // 0向下 1向上 2向左 3向右
+        openWatch: true, // 开启数据实时监控刷新dom
+        singleHeight: 20, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
+        singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
+        waitTime: 2500 // 单步运动停止的时间(默认值1000ms)
+      },
     }
   }
 }
@@ -142,10 +173,12 @@ export default {
   // top: 62px;
   // width: 20%;
   // height: 60%;
-  top: 0.62rem;
+  // top: 0.62rem;
+  top: 0;
   width: 4rem;
   // height: 8rem;
-  height: 60%;
+  // height: 60%;
+  height: 100%;
   overflow: hidden;
   min-width: 180px;
   // background-color: #666;
@@ -156,6 +189,8 @@ export default {
       margin-top: 0.2rem;
       padding: 0.2rem 0;
       text-align: center;
+      font-size: 0.3rem;
+      font-weight: bold;
     }
     .num-item {
       display: inline-block;
@@ -178,7 +213,8 @@ export default {
         padding: 0 0 0.1rem 0;
       }
       .networkCon {
-        height: 100%;
+        height: 50%;
+        overflow: hidden;
       }
     }
     .seamless-title {
@@ -191,8 +227,8 @@ export default {
       }
     }
     .seamless-value {
-      height: 0.30rem;
-      line-height: 0.3rem;
+      height: 0.2rem;
+      line-height: 0.2rem;
       color: rgb(250, 200, 88);
       box-sizing: border-box;
       display: flex;
@@ -215,38 +251,40 @@ export default {
     }
     .table-col {
       // height: 3rem;
-      height: calc(100% - 1.2rem);
+      height: calc(100% - 0.7rem);
       overflow: auto;
+      // background-color: rgb(0, 40, 89);
     }
     /deep/ .el-radio-button--mini .el-radio-button__inner {
       padding: 0.05rem 0.1rem;
     }
 
   // }
-  // .network-indicators-box .seamless-warp {
-  //   overflow: hidden;
-  //   margin-top: 10px;
-  // }
-
-  // .network-indicators-box .seamless-warp li {
-  //   height: 30px;
-  //   line-height: 30px;
-  //   padding: 0 10px;
-  //   color: rgb(250, 200, 88);
-  //   box-sizing: border-box;
-  //   display: flex;
-  //   justify-content: space-around;
-  // }
-  // .network-indicators-box .seamless-warp li span {
-  //   display: inline-block;
-  //   min-width: 20px;
-  // }
-  // .network-indicators-box .seamless-warp li:nth-child(even) {
-  //   background-color: rgb(0, 48, 101, 0.5);
-  // }
-  // .network-indicators-box .seamless-warp li:nth-child(odd) {
-  //   background-color: rgb(1, 30, 74, 0.8);          
-  // }
+    .seamless-warp {
+      overflow: hidden;
+      // margin-top: 10px;
+      li {
+        height: 0.3rem;
+        line-height: 0.3rem;
+        // padding: 0 10px;
+        color: rgb(250, 200, 88);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        span {
+          display: inline-block;
+          width: 25%;
+          text-align: center;
+        }
+        &:nth-child(even) {
+          background-color: rgba(0, 48, 101, 0.5);
+        }
+        &:nth-child(odd) {
+          background-color: rgba(1, 30, 74, 0.2);
+        }
+      }
+      
+    }
   }
 
 
@@ -256,33 +294,43 @@ export default {
     overflow: hidden;
     .content {
       overflow: hidden;
-      padding: 0.1rem;
+      padding: 0.2rem 0;
       margin-top: 0.1rem;
+      display: flex;
+      justify-content: space-between;
     }
     .num {
-      font-size: 0.2rem;
+      font-size: 0.24rem;
       color: #00b0ed;
     }
     .title {
       font-size: 0.14rem;
-      color: #fff;
+      // color: #fff;
       margin-bottom: 0.1rem;
     }
     .totalNum .num{
-      font-size: 0.25rem;
+      font-size: 0.26rem;
       color: #fedb65;
     }
     .buildingNum,
-    .shop {
-      width: 50%;
+    .shop,
+    .totalNum {
+      // width: 50%;
+      background: url('../assets/screen_icon/bg01.png') no-repeat;
+      background-size: 100% 100%;
+      width: 30%;
+      padding: 0.1rem 0 0.1rem 0.1rem;
+      .title {
+        font-size: 0.12rem;
+      }
+      .num {
+        color: rgb(130,210,111);
+        font-weight: bold;
+      }
     }
-    .totalNum{
-      width: 100%;
-      margin-bottom: 0.2rem;
-    }
-    .shop {
-      float: right;
-    }
+    // .shop {
+    //   float: right;
+    // }
   }
 }
 </style>

@@ -110,7 +110,8 @@ export default {
 .screen-right {
   position: absolute;
   right: 0.1rem;
-  top: 0.62rem;
+  // top: 0.62rem;
+  top: 0;
   width: 4rem;
   z-index: 3;
   // height: 8rem;

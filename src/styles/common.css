@@ -30,7 +30,7 @@
   background: -o-linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* Firefox 3.6 - 15 */
   background: linear-gradient(90deg, rgb(0,48,92), rgb(5,23,48)); /* 标准的语法（必须放在最后） */
- 
+  color: #fff;
 }
 .g-title ::before {
   content: '';

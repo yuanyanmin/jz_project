@@ -10,6 +10,7 @@
   "dependencies": {
     "core-js": "^3.29.0",
     "vue": "^2.6.11",
+    "vue-seamless-scroll": "^1.1.23",
     "vuex": "3.1.0"
   },
   "devDependencies": {

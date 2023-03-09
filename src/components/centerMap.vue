@@ -33,7 +33,8 @@ export default {
   // height: 8rem;
   height: 60%;
   margin: 0 auto;
-  top: 0.62rem;
+  // top: 0.62rem;
+  top: 0;
   // background: #999;
 }
 </style>
