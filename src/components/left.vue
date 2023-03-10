@@ -7,11 +7,12 @@
         样本总数
       </p>
       <div class="num g-box-border">
-        <span v-for="(item, index) in sampleNumber.toString().split('')"
+        <!-- <span v-for="(item, index) in sampleNumber.toString().split('')"
           :key="index"
           class="num-item">
           {{item}}
-        </span>
+        </span> -->
+        {{thousands(sampleNumber)}}
       </div>
     </div>
 
@@ -116,7 +117,7 @@ export default {
   },
   data() {
     return {
-      sampleNumber: '81025万',
+      sampleNumber: '81025000',
       captureData: {
         totalNum: 5870000,
         buildingNum: 8700,
@@ -152,7 +153,7 @@ export default {
       ],
       classOption: {
         step: 0.5, // 数值越大速度滚动越快
-        limitMoveNum: 1116, // 开始无缝滚动的数据量 this.dataList.length
+        limitMoveNum: 8, // 开始无缝滚动的数据量 this.dataList.length
         hoverStop: true, // 是否开启鼠标悬停stop
         direction: 1, // 0向下 1向上 2向左 3向右
         openWatch: true, // 开启数据实时监控刷新dom
@@ -160,6 +161,14 @@ export default {
         singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
         waitTime: 2500 // 单步运动停止的时间(默认值1000ms)
       },
+    }
+  },
+  methods: {
+    thousands(num){
+      var str = num.toString();
+      var reg = str.indexOf(".") > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
+      console.log('str.replace(reg,"$1,");', str.replace(reg,"$1,"));
+      return str.replace(reg,"$1,");
     }
   }
 }
@@ -189,15 +198,13 @@ export default {
       margin-top: 0.2rem;
       padding: 0.2rem 0;
       text-align: center;
-      font-size: 0.3rem;
-      font-weight: bold;
+      font-size: 0.5rem;
+      font-family: "Microsoft YaHei", "Arial" !important;
+      // font-weight: bold;
     }
     .num-item {
       display: inline-block;
       padding: 0.05rem;
-      background: url('../assets/screen_icon/numItemBox.png') no-repeat;
-      background-size: 100% 100%;;
-      margin-left: 0.1rem;
       text-align: center;
     }
   }
